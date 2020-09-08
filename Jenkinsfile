@@ -1,9 +1,5 @@
 node {
-    stages {
-        stage('build') {
-            steps {
-                sh 'npm --version'
-            }
-        }
-    }
+  stage('build') {
+    sh 'npm --version'
+  }
 }
