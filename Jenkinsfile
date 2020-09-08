@@ -1,4 +1,11 @@
 node {
+
+ agent {
+    docker {
+      image 'node:10.11.0-alpine'
+    }
+ }
+
   stage('Notify Sentry of deployment') {
     environment {
       SENTRY_AUTH_TOKEN = credentials('sentry-auth-token')
@@ -7,7 +14,7 @@ node {
       SENTRY_ENVIRONMENT = 'production'
     }
       // Install Sentry CLI
-      sh 'curl -sL https://sentry.io/get-cli/ | bash'
+      sh 'npm install @sentry/cli'
       sh '''
           export SENTRY_RELEASE=$(date +"%y-%m-%d")
           sentry-cli releases new -p $SENTRY_PROJECT $SENTRY_RELEASE
