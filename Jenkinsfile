@@ -1,11 +1,4 @@
 node {
-
- agent {
-    docker {
-      image 'node:10.11.0-alpine'
-    }
- }
-
   stage('Notify Sentry of deployment') {
     environment {
       SENTRY_AUTH_TOKEN = credentials('sentry-auth-token')
