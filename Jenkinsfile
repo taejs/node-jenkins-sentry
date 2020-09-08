@@ -6,7 +6,6 @@ node {
       SENTRY_PROJECT = 'nodejs'
       SENTRY_ENVIRONMENT = 'production'
     }
-    steps {
       // Install Sentry CLI
       sh 'curl -sL https://sentry.io/get-cli/ | bash'
       sh '''
@@ -17,6 +16,5 @@ node {
           sentry-cli releases finalize $SENTRY_RELEASE
           sentry-cli releases deploys $SENTRY_RELEASE new -e $SENTRY_ENVIRONMENT
         '''
-    }
   }
 }
