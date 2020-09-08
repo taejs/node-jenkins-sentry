@@ -7,7 +7,7 @@ node {
       SENTRY_ENVIRONMENT = 'production'
     }
       // Install Sentry CLI
-      sh 'curl -sL https://sentry.io/get-cli/ | bash'
+      //sh 'curl -sL https://sentry.io/get-cli/ | bash'
       sh '''
           export SENTRY_RELEASE=$(date +"%y-%m-%d")
           sentry-cli releases new -p $SENTRY_PROJECT $SENTRY_RELEASE
