@@ -1,11 +1,13 @@
 node {
-  stage('Notify Sentry of deployment') {
+  stage('Sentry') {
     environment {
       SENTRY_AUTH_TOKEN = credentials('sentry-auth-token')
       SENTRY_ORG = 'tae-company'
       SENTRY_PROJECT = 'nodejs'
       SENTRY_ENVIRONMENT = 'production'
     }
+
+    withNPM() {
       // Install Sentry CLI
       sh 'npm install @sentry/cli'
       sh '''
@@ -16,5 +18,6 @@ node {
           sentry-cli releases finalize $SENTRY_RELEASE
           sentry-cli releases deploys $SENTRY_RELEASE new -e $SENTRY_ENVIRONMENT
         '''
+    }
   }
 }
