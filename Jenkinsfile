@@ -14,8 +14,8 @@ environment {
     stage('Example') {
       steps {
           // Install Sentry CLI
-          sh 'npm install @sentry/cli'
           sh '''
+              npm install @sentry/cli
               export SENTRY_RELEASE=$(date +"%y-%m-%d")
               sentry-cli releases new -p $SENTRY_PROJECT $SENTRY_RELEASE
               sentry-cli releases set-commits $SENTRY_RELEASE --auto
