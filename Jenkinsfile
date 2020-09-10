@@ -1,7 +1,7 @@
 pipeline {
   agent any
 
-  tools {nodejs "nodejs"}
+  tools {nodejs "node12"}
 
 environment {
   SENTRY_AUTH_TOKEN = credentials('sentry-auth-token')
