@@ -1,11 +1,10 @@
 node {
+        def  SENTRY_AUTH_TOKEN = credentials('sentry-auth-token')
+      def SENTRY_ORG = 'tae-company'
+      def SENTRY_PROJECT = 'nodejs'
+      def SENTRY_ENVIRONMENT = 'production'
+
   stage('Sentry') {
-    environment {
-      SENTRY_AUTH_TOKEN = credentials('sentry-auth-token')
-      SENTRY_ORG = 'tae-company'
-      SENTRY_PROJECT = 'nodejs'
-      SENTRY_ENVIRONMENT = 'production'
-    }
 
   // Install Sentry CLI
   sh 'npm install @sentry/cli'
