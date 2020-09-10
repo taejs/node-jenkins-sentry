@@ -7,7 +7,7 @@ node {
   stage('Sentry') {
 
   // Install Sentry CLI
-                sh 'curl -sL https://sentry.io/get-cli/ --no-clobber | bash'
+                sh 'curl -sL https://sentry.io/get-cli/ -N | bash'
   sh '''
       export SENTRY_RELEASE=$(date +"%y-%m-%d")
       sentry-cli releases new -p $SENTRY_PROJECT $SENTRY_RELEASE
