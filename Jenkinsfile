@@ -7,7 +7,7 @@ node {
       SENTRY_ENVIRONMENT = 'production'
     }
 
-    withNPM(npmrcConfig: 'MyNpmrcConfig') {
+    withNPM(npmrcConfig: 'npmrc') {
       // Install Sentry CLI
       sh 'npm install @sentry/cli'
       sh '''
