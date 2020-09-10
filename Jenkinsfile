@@ -1,6 +1,4 @@
 pipeline {
-  agent any
-
   tools {nodejs "node12"}
 
   environment {
