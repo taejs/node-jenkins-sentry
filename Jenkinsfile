@@ -1,9 +1,12 @@
+#!groovy
+
 node {
   env.NODEJS_HOME = "${tool 'node12'}"
   env.PATH="${env.NODEJS_HOME}/bin:${env.PATH}"
 
   stage('Sentry') {
     // Install Sentry CLI
+    sh "echo ${tool 'node12'}"
     sh 'npm install'
     sh '''
         export SENTRY_RELEASE=$(date +"%y-%m-%d")
