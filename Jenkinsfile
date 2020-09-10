@@ -1,6 +1,4 @@
 node {
-  agent any
-  tools {nodejs "node"}
   stage('Sentry') {
     environment {
       SENTRY_AUTH_TOKEN = credentials('sentry-auth-token')
